@@ -1,4 +1,4 @@
-package uniquindio.edu.co.model;
+package co.edu.uniquindio.poo.model;
 
 public enum TemperaturaServicio {
 }
