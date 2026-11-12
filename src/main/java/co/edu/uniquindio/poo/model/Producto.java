@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo;
+package co.edu.uniquindio.poo.model;
 
 public abstract class Producto {
     protected String codigo;
@@ -20,25 +20,44 @@ public abstract class Producto {
     public abstract boolean cumpleCalidad();
     public abstract String getCategoria();
 
-    // Getters tradicionales
-    public String getCodigo() {
-        return codigo;
+    public int getTiempoPreparacionMin() {
+        return tiempoPreparacionMin;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
+    public void setTiempoPreparacionMin(int tiempoPreparacionMin) {
+        this.tiempoPreparacionMin = tiempoPreparacionMin;
     }
 
     public double getPrecioBase() {
         return precioBase;
     }
 
-    public int getTiempoPreparacionMin() {
-        return tiempoPreparacionMin;
+    public void setPrecioBase(double precioBase) {
+        this.precioBase = precioBase;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     @Override

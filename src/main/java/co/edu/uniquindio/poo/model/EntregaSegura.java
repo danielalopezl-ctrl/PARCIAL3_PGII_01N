@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo;
+package co.edu.uniquindio.poo.model;
 
 public class EntregaSegura implements ServicioEntrega {
     private double tarifaBase = 7000.0;
