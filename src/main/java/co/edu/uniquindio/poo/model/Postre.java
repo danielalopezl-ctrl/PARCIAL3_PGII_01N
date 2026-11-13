@@ -1,12 +1,5 @@
 package co.edu.uniquindio.poo.model;
 
-/**
- * Representa un postre dentro del catálogo de productos.
- * Aplica un incremento del 15% (normal) o 20% (si requiere refrigeración) sobre el precio base.
- * Valida la calidad en función del peso y la temperatura de almacenamiento.
- *
- * @author Julian Gallego
- */
 public class Postre extends Producto {
 
     private double pesoGramos;
@@ -14,16 +7,16 @@ public class Postre extends Producto {
     private boolean requiereRefrigeracion;
 
     /**
-     * Constructor principal de Postre.
+     * Metodo constructor principal de la clase Postre.
      *
-     * @param codigo Código identificador único del postre.
-     * @param nombre Nombre comercial del postre.
-     * @param descripcion Descripción de ingredientes.
-     * @param precioBase Costo base sin incrementos.
-     * @param tiempoPreparacionMin Tiempo de preparación en minutos.
-     * @param pesoGramos Peso de la porción en gramos.
-     * @param tempAlmacenamiento Temperatura de almacenamiento en grados Celsius.
-     * @param requiereRefrigeracion Indica si el postre necesita cadena de frío.
+     * @param codigo del postre
+     * @param nombre del postre
+     * @param descripcion del postre
+     * @param precioBase del postre
+     * @param tiempoPreparacionMin del postre
+     * @param pesoGramos del postre
+     * @param tempAlmacenamiento del postre
+     * @param requiereRefrigeracion del postre
      */
     public Postre(String codigo, String nombre, String descripcion, double precioBase,
                   int tiempoPreparacionMin, double pesoGramos, double tempAlmacenamiento,
@@ -35,11 +28,8 @@ public class Postre extends Producto {
     }
 
     /**
-     * Calcula el precio de venta del postre:
-     * - Incremento del 20% si requiere refrigeración.
-     * - Incremento del 15% si no requiere refrigeración.
-     *
-     * @return double Precio final de venta.
+     * Metodo para calcular el precio de venta del postre
+     * @return
      */
     @Override
     public double calcularPrecioVenta() {
@@ -51,12 +41,8 @@ public class Postre extends Producto {
     }
 
     /**
-     * Evalúa si el postre cumple las condiciones de calidad y conservación:
-     * - Peso entre 80.0 y 500.0 gramos.
-     * - Si requiere refrigeración: Temperatura entre 0.0 °C y 6.0 °C.
-     * - Si no requiere refrigeración: Temperatura ambiente entre 15.0 °C y 30.0 °C.
-     *
-     * @return boolean true si cumple con las condiciones; false en caso contrario.
+     * Metodo para evalar si el postre cumple las condiciones de calidad y conservación
+     * @return
      */
     @Override
     public boolean cumpleCalidad() {
@@ -83,39 +69,22 @@ public class Postre extends Producto {
         return false;
     }
 
-    /**
-     * Retorna la categoría del producto.
-     *
-     * @return String "POSTRES".
-     */
+
     @Override
     public String getCategoria() {
         return "POSTRES";
     }
 
-    /**
-     * Obtiene el peso de la porción en gramos.
-     *
-     * @return double Peso en gramos.
-     */
+
     public double getPesoGramos() {
         return pesoGramos;
     }
 
-    /**
-     * Obtiene la temperatura de almacenamiento en grados Celsius.
-     *
-     * @return double Temperatura en °C.
-     */
+
     public double getTempAlmacenamiento() {
         return tempAlmacenamiento;
     }
 
-    /**
-     * Indica si el postre requiere conservación en frío.
-     *
-     * @return boolean true si requiere refrigeración; false si se conserva a temperatura ambiente.
-     */
     public boolean isRequiereRefrigeracion() {
         return requiereRefrigeracion;
     }

@@ -3,13 +3,6 @@ package co.edu.uniquindio.poo.model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-/**
- * Representa una orden de compra en el restaurante.
- * Controla la modalidad de entrega, cálculo de totales, asignación de servicio de domicilio
- * y el ciclo de vida del pedido (PENDIENTE, CONFIRMADO, ENTREGADO, CANCELADO).
- *
- * @author Julian Gallego
- */
 public class Pedido {
 
     private String codigo;
@@ -24,11 +17,10 @@ public class Pedido {
     private ArrayList<DetallePedido> detalles;
 
     /**
-     * Constructor principal de Pedido.
-     *
-     * @param codigo Código identificador único del pedido.
-     * @param cliente Cliente que realiza la orden.
-     * @param modalidad Modalidad de consumo (CONSUMO_RESTAURANTE o DOMICILIO).
+     *Metodo constructor principal de Pedido
+     * @param codigo del pedido
+     * @param cliente Cliente que realiza la orden
+     * @param modalidad del producto
      */
     public Pedido(String codigo, Cliente cliente, ModalidadEntrega modalidad) {
         this.codigo = codigo;
@@ -44,8 +36,7 @@ public class Pedido {
     }
 
     /**
-     * Agrega un producto con su cantidad a la lista de detalles del pedido.
-     *
+     * Metodo para agregar un producto con su cantidad a la lista
      * @param producto Producto seleccionado.
      * @param cantidad Unidades solicitadas.
      */
@@ -55,10 +46,9 @@ public class Pedido {
     }
 
     /**
-     * Asigna la empresa de transporte para pedidos a domicilio y liquida la tarifa si la distancia es aceptada.
-     *
-     * @param servicio Empresa de mensajería (ServicioEntrega).
-     * @param distanciaKm Distancia en kilómetros hasta el destino.
+     * Metodo para asignar la empresa de transporte  pedidos a domicilio
+     * @param servicio Empresa de mensajería
+     * @param distanciaKm Distancia en kilómetros hasta el destino
      */
     public void asignarServicioDomicilio(ServicioEntrega servicio, double distanciaKm) {
         this.servicio = servicio;
@@ -76,12 +66,8 @@ public class Pedido {
     }
 
     /**
-     * Verifica que el pedido cumpla con todas las condiciones obligatorias:
-     * 1. Debe tener al menos un producto en los detalles.
-     * 2. Todos los productos incluidos deben cumplir sus controles de calidad.
-     * 3. Si es a domicilio, la empresa de mensajería debe haber aceptado la entrega.
+     * Metodo para verificar que el pedido cumpla con todas las condiciones obligatorias
      *
-     * @return boolean true si cumple todas las reglas de negocio; false en caso contrario.
      */
     public boolean cumpleCondiciones() {
         if (detalles.isEmpty()) {
@@ -105,9 +91,9 @@ public class Pedido {
     }
 
     /**
-     * Confirma el pedido cambiando su estado a CONFIRMADO si se encuentra PENDIENTE y cumple todas las condiciones.
+     * Metodo para confirmar el pedido cuando cambia su estado a CONFIRMADO si se encuentra PENDIENTE y cumple todas las condiciones.
      *
-     * @return boolean true si se confirmó exitosamente; false si fue rechazado.
+     * @return
      */
     public boolean confirmar() {
         if (estado == EstadoPedido.PENDIENTE && cumpleCondiciones() == true) {
@@ -119,7 +105,7 @@ public class Pedido {
     }
 
     /**
-     * Actualiza el estado del pedido a ENTREGADO cuando ya ha sido servido o despachado.
+     * Metodo para que actualize el estado del pedido a ENTREGADO cuando ya ha sido servido o despachado.
      */
     public void marcarEntregado() {
         if (estado == EstadoPedido.CONFIRMADO) {
@@ -127,17 +113,14 @@ public class Pedido {
         }
     }
 
-    /**
-     * Cambia el estado del pedido a CANCELADO.
-     */
+
     public void cancelar() {
         this.estado = EstadoPedido.CANCELADO;
     }
 
     /**
-     * Suma el valor monetario de todos los productos incluidos en los detalles.
-     *
-     * @return double Subtotal acumulado.
+     *Metodo para Sumar el valor monetario de todos los productos incluidos en los detalles.
+     * @return
      */
     public double calcularSubtotalProductos() {
         double subtotal = 0.0;
@@ -148,101 +131,53 @@ public class Pedido {
         return subtotal;
     }
 
-    /**
-     * Calcula el valor total de la orden sumando los productos y el costo del flete de domicilio.
-     *
-     * @return double Total general a pagar.
-     */
     public double calcularTotal() {
         return calcularSubtotalProductos() + costoDomicilio;
     }
 
-    /**
-     * Obtiene el código del pedido.
-     *
-     * @return String Código identificador.
-     */
+
     public String getCodigo() {
         return codigo;
     }
 
-    /**
-     * Obtiene la fecha de registro del pedido.
-     *
-     * @return LocalDate Fecha de la orden.
-     */
+
     public LocalDate getFecha() {
         return fecha;
     }
 
-    /**
-     * Obtiene el cliente asociado a la orden.
-     *
-     * @return Cliente Titular del pedido.
-     */
     public Cliente getCliente() {
         return cliente;
     }
 
-    /**
-     * Obtiene la modalidad de entrega.
-     *
-     * @return ModalidadEntrega CONSUMO_RESTAURANTE o DOMICILIO.
-     */
+
     public ModalidadEntrega getModalidad() {
         return modalidad;
     }
 
-    /**
-     * Obtiene el estado actual del pedido.
-     *
-     * @return EstadoPedido PENDIENTE, CONFIRMADO, ENTREGADO o CANCELADO.
-     */
+
     public EstadoPedido getEstado() {
         return estado;
     }
 
-    /**
-     * Obtiene la distancia en kilómetros hacia el destino.
-     *
-     * @return double Distancia en km.
-     */
+
     public double getDistanciaKm() {
         return distanciaKm;
     }
 
-    /**
-     * Indica si la entrega a domicilio fue aceptada por la empresa de envíos.
-     *
-     * @return boolean true si fue aceptada; false si fue rechazada.
-     */
+
     public boolean isEntregaAceptada() {
         return entregaAceptada;
     }
 
-    /**
-     * Obtiene el costo liquidado por el servicio de domicilio.
-     *
-     * @return double Costo de transporte.
-     */
     public double getCostoDomicilio() {
         return costoDomicilio;
     }
 
-    /**
-     * Obtiene el servicio de mensajería asignado.
-     *
-     * @return ServicioEntrega Empresa transportadora.
-     */
+
     public ServicioEntrega getServicio() {
         return servicio;
     }
 
-    /**
-     * Obtiene la lista de detalles con los productos y cantidades.
-     *
-     * @return ArrayList de DetallePedido.
-     */
     public ArrayList<DetallePedido> getDetalles() {
         return detalles;
     }

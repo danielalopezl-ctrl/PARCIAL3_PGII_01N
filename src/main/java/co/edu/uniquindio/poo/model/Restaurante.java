@@ -2,13 +2,6 @@ package co.edu.uniquindio.poo.model;
 
 import java.util.ArrayList;
 
-/**
- * Clase principal del modelo de negocio que gestiona el restaurante.
- * Administra el catálogo de productos, registro de clientes, procesamiento de pedidos
- * y la generación de reportes comerciales y financieros.
- *
- * @author Julian Gallego
- */
 public class Restaurante {
 
     private String nombreComercial;
@@ -20,11 +13,11 @@ public class Restaurante {
     private ArrayList<Pedido> pedidos;
 
     /**
-     * Constructor principal de Restaurante.
+     * Metodo constructor principal de Restaurante.
      *
-     * @param nombreComercial Razón social o nombre del establecimiento.
-     * @param nit Número de identificación tributaria.
-     * @param direccion Sede principal del restaurante.
+     * @param nombreComercial del restaurante
+     * @param nit del restaurante
+     * @param direccion del restaurante
      */
     public Restaurante(String nombreComercial, String nit, String direccion) {
         this.nombreComercial = nombreComercial;
@@ -36,11 +29,9 @@ public class Restaurante {
     }
 
     /**
-     * Registra un nuevo producto en el menú del restaurante.
-     * Valida que el producto no sea nulo y que no exista otro con el mismo código.
-     *
-     * @param nuevoProducto Producto a incorporar al menú.
-     * @return boolean true si se registró con éxito; false si es nulo o el código ya existe.
+     * Metodo para Registrar un nuevo producto en el menú del restaurante.
+     * @param nuevoProducto para el restaurante
+     * @return
      */
     public boolean registrarProducto(Producto nuevoProducto) {
         if (nuevoProducto == null) {
@@ -59,11 +50,10 @@ public class Restaurante {
     }
 
     /**
-     * Registra un nuevo cliente en el sistema.
-     * Valida que no exista otro cliente con el mismo documento de identidad.
+     * Metodo para  Registrar un nuevo cliente en el sistema.
      *
-     * @param nuevoCliente Cliente a registrar.
-     * @return boolean true si fue registrado; false si el documento ya existe o es nulo.
+     * @param nuevoCliente para el restaurante
+     * @return
      */
     public boolean registrarCliente(Cliente nuevoCliente) {
         if (nuevoCliente == null) {
@@ -82,10 +72,10 @@ public class Restaurante {
     }
 
     /**
-     * Busca un cliente en el sistema por su número de documento.
+     * Metodo para buscar un cliente en el sistema por su número de documento.
      *
-     * @param documento Documento de identidad a buscar.
-     * @return Cliente Instancia encontrada o null si no existe.
+     * @param documento del cliente
+     * @return
      */
     public Cliente buscarCliente(String documento) {
         for (int i = 0; i < clientes.size(); i++) {
@@ -98,10 +88,10 @@ public class Restaurante {
     }
 
     /**
-     * Busca un producto en el menú por su código.
+     * Metodo para Buscar un producto en el menú por su código.
      *
-     * @param codigo Código del producto.
-     * @return Producto Instancia encontrada o null si no existe.
+     * @param codigo del producto
+     * @return
      */
     public Producto buscarProducto(String codigo) {
         for (int i = 0; i < productos.size(); i++) {
@@ -117,7 +107,7 @@ public class Restaurante {
      * Busca un pedido en el registro por su código identificador.
      *
      * @param codigo Código del pedido.
-     * @return Pedido Instancia encontrada o null si no existe.
+     * @return
      */
     public Pedido buscarPedido(String codigo) {
         for (int i = 0; i < pedidos.size(); i++) {
@@ -130,12 +120,10 @@ public class Restaurante {
     }
 
     /**
-     * Valida, confirma y registra un nuevo pedido en el restaurante.
-     * Verifica que el código no exista previamente, ejecuta la confirmación bromatológica
-     * y de transporte del pedido, y lo añade tanto al restaurante como al historial del cliente.
+     * Metodo para Validar, confirma y registra un nuevo pedido en el restaurante.
      *
-     * @param nuevoPedido Pedido a confirmar y registrar.
-     * @return boolean true si el pedido fue confirmado y guardado; false en caso contrario.
+     * @param nuevoPedido para el restaurante
+     * @return
      */
     public boolean registrarPedido(Pedido nuevoPedido) {
         if (nuevoPedido == null) {
@@ -157,10 +145,9 @@ public class Restaurante {
     }
 
     /**
-     * Calcula los ingresos propios del restaurante correspondientes únicamente al consumo
-     * de comida y bebida de pedidos confirmados o entregados.
+     *Metodo para Calcular los ingresos propios del restaurante
      *
-     * @return double Total de ingresos por venta de productos.
+     * @return
      */
     public double calcularIngresosPropios() {
         double total = 0.0;
@@ -174,10 +161,9 @@ public class Restaurante {
     }
 
     /**
-     * Calcula el recaudo total por concepto de servicios de domicilio
-     * de pedidos confirmados o entregados.
+     * Metodo para Calcular el recaudo total
      *
-     * @return double Total de ingresos por transporte.
+     * @return
      */
     public double calcularIngresosDomicilios() {
         double total = 0.0;
@@ -191,18 +177,18 @@ public class Restaurante {
     }
 
     /**
-     * Calcula el ingreso global del restaurante sumando los ingresos propios y los de domicilio.
+     * Metodo para calcular los ingresos globales del restaurante
      *
-     * @return double Ingreso total.
+     * @return
      */
     public double calcularIngresos() {
         return calcularIngresosPropios() + calcularIngresosDomicilios();
     }
 
     /**
-     * Genera una lista con los productos del menú que no cumplen con los parámetros de calidad bromatológica.
+     * Metodo para Generar una lista con los productos del menú que no cumplen con los parámetros de calidad
      *
-     * @return ArrayList de Producto con productos en estado no conforme.
+     * @return
      */
     public ArrayList<Producto> obtenerProductosNoCumplenCalidad() {
         ArrayList<Producto> malos = new ArrayList<>();
@@ -216,10 +202,9 @@ public class Restaurante {
     }
 
     /**
-     * Determina el producto que registra la mayor cantidad de unidades vendidas
-     * en los pedidos confirmados o entregados.
+     * Metodo para Determinar el producto que registra la mayor cantidad de unidades vendidas
      *
-     * @return Producto con mayor volumen de ventas, o null si no se registran ventas.
+     * @return
      */
     public Producto obtenerProductoMasVendido() {
         Producto masVendido = null;
@@ -251,10 +236,9 @@ public class Restaurante {
     }
 
     /**
-     * Totaliza las ventas monetarias agrupadas por categoría (PLATOS_FUERTES, BEBIDAS, POSTRES)
-     * e identifica cuál representó el mayor ingreso para el restaurante.
+     *Metodo para  Totalizar las ventas monetarias agrupadas por categoría
      *
-     * @return String Nombre de la categoría y su valor facturado.
+     * @return
      */
     public String obtenerCategoriaMayorIngreso() {
         double ventasPlatos = 0.0;
@@ -288,29 +272,16 @@ public class Restaurante {
         }
     }
 
-    /**
-     * Obtiene la lista completa de productos del menú.
-     *
-     * @return ArrayList de Producto.
-     */
+
     public ArrayList<Producto> getProductos() {
         return productos;
     }
 
-    /**
-     * Obtiene la lista de todos los pedidos registrados en el restaurante.
-     *
-     * @return ArrayList de Pedido.
-     */
+
     public ArrayList<Pedido> getPedidos() {
         return pedidos;
     }
 
-    /**
-     * Obtiene el nombre comercial del restaurante.
-     *
-     * @return String Nombre del restaurante.
-     */
     public String getNombreComercial() {
         return nombreComercial;
     }

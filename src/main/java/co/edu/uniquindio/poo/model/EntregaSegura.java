@@ -1,12 +1,5 @@
 package co.edu.uniquindio.poo.model;
 
-/**
- * Implementación de la empresa de mensajería EntregaSegura.
- * Cobertura máxima de 20 kilómetros.
- * Tarifa: $7.000 base + $1.000 por kilómetro. Aplica un recargo de $3.000 si supera los 5 km.
- *
- * @author Julian Gallego
- */
 public class EntregaSegura implements ServicioEntrega {
     private double tarifaBase = 7000.0;
     private double tarifaPorKm = 1000.0;
@@ -14,10 +7,10 @@ public class EntregaSegura implements ServicioEntrega {
     private double maxKm = 20.0;
 
     /**
-     * Valida si el trayecto no supera los 20 kilómetros y es mayor a 0.
+     * Metodo para validar si el trayecto no supera los 20 kilómetros y es mayor a 0.
      *
      * @param distanciaKm Distancia en km.
-     * @return boolean true si la distancia es positiva y menor o igual a 20 km.
+     * @return
      */
     @Override
     public boolean aceptaRecorrido(double distanciaKm) {
@@ -29,11 +22,9 @@ public class EntregaSegura implements ServicioEntrega {
     }
 
     /**
-     * Liquida el costo del envío: $7.000 base + ($1.000 * distanciaKm).
-     * Si la distancia supera los 5 km, suma $3.000 de recargo por trayecto largo.
-     *
+     * Metodo para calcular la distancia de reccorido + recargo
      * @param distanciaKm Distancia en km.
-     * @return double Costo total del envío.
+     * @return
      */
     @Override
     public double calcularCosto(double distanciaKm) {
@@ -46,11 +37,6 @@ public class EntregaSegura implements ServicioEntrega {
         return total;
     }
 
-    /**
-     * Retorna el nombre de la empresa.
-     *
-     * @return String "EntregaSegura".
-     */
     @Override
     public String getNombre() {
         return "EntregaSegura";

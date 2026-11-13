@@ -14,12 +14,7 @@ public class Main {
     private static ServicioEntrega rapidoExpress = new RapidoExpress();
     private static ServicioEntrega entregaSegura = new EntregaSegura();
 
-    /**
-     * Método principal que inicializa los datos de prueba y gestiona
-     * el bucle de interacción del menú principal.
-     *
-     * @param args Argumentos de la línea de comandos.
-     */
+
     public static void main(String[] args) {
         cargarDatosPrueba();
 
@@ -82,10 +77,7 @@ public class Main {
         } while (opcion != 7);
     }
 
-    /**
-     * Despliega formularios interactivos para capturar los datos requeridos
-     * e instanciar un PlatoFuerte, Bebida o Postre para añadirlo al menú del restaurante.
-     */
+
     private static void registrarProductoMenu() {
 
         int tipo = Integer.parseInt(JOptionPane.showInputDialog(
@@ -182,10 +174,7 @@ public class Main {
         }
     }
 
-    /**
-     * Solicita la información de un cliente (documento, nombre, contacto, dirección)
-     * e intenta registrarlo en el sistema validando la no duplicidad de documento.
-     */
+
     private static void registrarCliente() {
 
         String doc = JOptionPane.showInputDialog("Número de documento:");
@@ -207,11 +196,7 @@ public class Main {
         }
     }
 
-    /**
-     * Flujo completo para crear, armar y confirmar un pedido.
-     * Solicita cliente, modalidad, permite agregar múltiples productos con cantidades,
-     * asigna el servicio de mensajería (si es a domicilio) y ejecuta la confirmación.
-     */
+
     private static void registrarYConfirmarPedido() {
 
         String codPed = JOptionPane.showInputDialog(
@@ -311,9 +296,7 @@ public class Main {
         }
     }
 
-    /**
-     * Consulta un pedido por su código y muestra su desglose de productos, cantidades y totales.
-     */
+
     private static void consultarPedido() {
 
         String cod = JOptionPane.showInputDialog(
@@ -344,9 +327,6 @@ public class Main {
         }
     }
 
-    /**
-     * Solicita el documento de un cliente y presenta en pantalla su historial de pedidos confirmados.
-     */
     private static void consultarHistorialCliente() {
 
         String doc = JOptionPane.showInputDialog(
@@ -379,11 +359,6 @@ public class Main {
         }
     }
 
-    /**
-     * Muestra en una ventana consolidada el reporte financiero y operativo del restaurante:
-     * ingresos propios, ingresos de domicilio, ingreso total, producto más vendido,
-     * categoría con mayores ingresos y alertas de calidad.
-     */
     private static void mostrarReportes() {
 
         String reporte = "REPORTES DE VENTAS\n\n";
@@ -425,9 +400,7 @@ public class Main {
         JOptionPane.showMessageDialog(null, reporte);
     }
 
-    /**
-     * Carga clientes y productos iniciales de ejemplo en el restaurante.
-     */
+
     private static void cargarDatosPrueba() {
 
         restaurante.registrarCliente(new Cliente(

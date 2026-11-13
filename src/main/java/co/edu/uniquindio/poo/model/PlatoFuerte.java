@@ -12,16 +12,16 @@ public class PlatoFuerte extends Producto {
     private boolean coccionAprobada;
 
     /**
-     * Constructor principal de PlatoFuerte.
+     * Metodo constructor de la clase plato fuerte.
      *
-     * @param codigo Código identificador único.
-     * @param nombre Nombre del plato fuerte.
-     * @param descripcion Detalle de ingredientes y acompañamientos.
-     * @param precioBase Costo base del plato.
-     * @param tiempoPreparacionMin Tiempo de preparación en minutos.
-     * @param pesoGramos Peso de la porción en gramos.
-     * @param preparacion Tipo o método de cocción empleado.
-     * @param coccionAprobada Indicador de aprobación del control de cocción.
+     * @param codigo del plato
+     * @param nombre del plato
+     * @param descripcion del plato
+     * @param precioBase del plato
+     * @param tiempoPreparacionMin del plato
+     * @param pesoGramos del plato
+     * @param preparacion del plato
+     * @param coccionAprobada del plato
      */
     public PlatoFuerte(String codigo, String nombre, String descripcion, double precioBase,
                        int tiempoPreparacionMin, double pesoGramos, TipoPreparacion preparacion,
@@ -33,9 +33,9 @@ public class PlatoFuerte extends Producto {
     }
 
     /**
-     * Calcula el precio de venta del plato fuerte aplicando un 20% de incremento sobre el precio base.
+     * Metodo para calcula el precio de venta del plato fuerte.
      *
-     * @return double Precio final de venta.
+     * @return
      */
     @Override
     public double calcularPrecioVenta() {
@@ -43,12 +43,8 @@ public class PlatoFuerte extends Producto {
     }
 
     /**
-     * Evalúa si el plato fuerte cumple las condiciones bromatológicas:
-     * - Peso entre 200 y 900 gramos.
-     * - Tiempo de preparación entre 10 y 60 minutos.
-     * - Control de cocción aprobado.
-     *
-     * @return boolean true si cumple todos los criterios de calidad; false en caso contrario.
+     * Metodo para Evaluar si el plato fuerte cumple las condiciones
+     * @return
      */
     @Override
     public boolean cumpleCalidad() {
@@ -62,39 +58,22 @@ public class PlatoFuerte extends Producto {
         return false;
     }
 
-    /**
-     * Retorna la categoría del producto.
-     *
-     * @return String "PLATOS_FUERTES".
-     */
+
     @Override
     public String getCategoria() {
         return "PLATOS_FUERTES";
     }
 
-    /**
-     * Obtiene el peso de la porción en gramos.
-     *
-     * @return double Peso en gramos.
-     */
     public double getPesoGramos() {
         return pesoGramos;
     }
 
-    /**
-     * Obtiene el método de preparación del plato.
-     *
-     * @return TipoPreparacion Método de cocción (ASADO, FRITO, HORNEADO, A_LA_PLANCHA).
-     */
+
     public TipoPreparacion getPreparacion() {
         return preparacion;
     }
 
-    /**
-     * Indica si el plato superó el control de cocción.
-     *
-     * @return boolean true si la cocción fue aprobada; false en caso contrario.
-     */
+
     public boolean isCoccionAprobada() {
         return coccionAprobada;
     }
