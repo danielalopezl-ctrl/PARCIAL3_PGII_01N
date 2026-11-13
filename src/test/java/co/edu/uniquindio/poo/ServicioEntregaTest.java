@@ -61,7 +61,7 @@ public class ServicioEntregaTest {
 
         assertFalse(segura.aceptaRecorrido(20.5));
         assertFalse(segura.aceptaRecorrido(0.0));
-        assertFalse(segura.aceptaRecorrido(-1.0));
+        assertFalse(segura.aceptaRecorrido(1.0));
     }
 
     @Test

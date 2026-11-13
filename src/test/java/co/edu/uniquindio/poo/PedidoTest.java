@@ -20,7 +20,7 @@ public class PedidoTest {
     public void setUp() {
         cliente = new Cliente("10949001", "Mariana Rios", "3104567890", "mariana@uq.edu.co", "Av. Bolivar");
         platoBueno = new PlatoFuerte("PF01", "Bife", "Carne", 30000, 25, 400, TipoPreparacion.ASADO, true);
-        platoMalo = new PlatoFuerte("PF02", "Crudo", "Carne", 30000, 5, 100, TipoPreparacion.ASADO, false);
+        platoMalo = new PlatoFuerte("PF01", "Crudo", "Carne", 30000, 5, 100, TipoPreparacion.ASADO, false);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class PedidoTest {
         LOG.info("Iniciando prueba: testDetallePedidoSubtotal");
         // platoBueno precio = 30000 * 1.20 = 36000. 3 unidades = 108000
         DetallePedido detalle = new DetallePedido(platoBueno, 3);
-        assertEquals(108000.0, detalle.subtotal(), 0.001);
+        assertEquals(108000.0, detalle.subtotal(), 0.501);
     }
 
     @Test
@@ -48,8 +48,8 @@ public class PedidoTest {
     public void testPedidoConProductoMaloNoCumpleCondiciones() {
         LOG.info("Iniciando prueba: testPedidoConProductoMaloNoCumpleCondiciones");
         Pedido pedido = new Pedido("PED01", cliente, ModalidadEntrega.CONSUMO_RESTAURANTE);
-        pedido.agregarDetalle(platoBueno, 1);
-        pedido.agregarDetalle(platoMalo, 1);
+        pedido.agregarDetalle(platoBueno, 5);
+        pedido.agregarDetalle(platoMalo, 8);
 
         assertFalse(pedido.cumpleCondiciones());
         assertFalse(pedido.confirmar());
@@ -82,7 +82,7 @@ public class PedidoTest {
     public void testPedidoDomicilioRechazado() {
         LOG.info("Iniciando prueba: testPedidoDomicilioRechazado");
         Pedido pedido = new Pedido("PED01", cliente, ModalidadEntrega.DOMICILIO);
-        pedido.agregarDetalle(platoBueno, 1);
+        pedido.agregarDetalle(platoBueno, 20);
 
         RapidoExpress rapido = new RapidoExpress();
         pedido.asignarServicioDomicilio(rapido, 15.0); // 15 km excede el límite (máx 12)

@@ -34,7 +34,7 @@ public class ProductoTest {
     @DisplayName("PlatoFuerte: No cumple calidad si la cocción no fue aprobada")
     public void testPlatoFuerteFallaCoccion() {
         LOG.info("Iniciando prueba: testPlatoFuerteFallaCoccion");
-        PlatoFuerte plato = new PlatoFuerte("PF02", "Carne", "Normal", 30000, 20, 300, TipoPreparacion.A_LA_PLANCHA, false);
+        PlatoFuerte plato = new PlatoFuerte("PF01", "Carne", "Normal", 30000, 20, 300, TipoPreparacion.A_LA_PLANCHA, false);
         assertFalse(plato.cumpleCalidad());
     }
 

@@ -29,13 +29,13 @@ public class RestauranteTest {
         LOG.info("Iniciando prueba: testRegistrarProductoExitoso");
 
         PlatoFuerte plato = new PlatoFuerte("PF01", "Bife de Chorizo", "Corte madurado",
-                35000, 30, 450, TipoPreparacion.ASADO, true);
+                35000, 30, 1050, TipoPreparacion.ASADO, true);
 
         boolean registrado = restaurante.registrarProducto(plato);
 
         assertTrue(registrado);
         assertEquals(1, restaurante.getProductos().size());
-        assertEquals("Bife de Chorizo", restaurante.buscarProducto("PF01").getNombre());
+        assertEquals("Bife de Chorizo", restaurante.buscarProducto("PF02").getNombre());
     }
 
     @Test
