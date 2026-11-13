@@ -21,7 +21,7 @@ public static void main(String[] args) {
 
     do {
         String menu = """
-                SISTEMA DE GESTION - RESTAURANTE EL BUEN COMER
+                RESTAURANTE EL BUEN COMER
 
                 1. Registrar producto al menú
                 2. Registrar cliente

@@ -71,6 +71,22 @@ package co.edu.uniquindio.poo.model;
             return temperaturaServicio;
         }
 
+        public void setVolumenMl(int volumenMl) {
+            this.volumenMl = volumenMl;
+        }
+
+        public void setTemperaturaServicio(double temperaturaServicio) {
+            this.temperaturaServicio = temperaturaServicio;
+        }
+
+        public void setTipo(TemperaturaServicio tipo) {
+            this.tipo = tipo;
+        }
+
+        public void setPreparacionEspecial(boolean preparacionEspecial) {
+            this.preparacionEspecial = preparacionEspecial;
+        }
+
         public TemperaturaServicio getTipo() {
             return tipo;
         }
