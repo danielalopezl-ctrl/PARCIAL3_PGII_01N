@@ -1,14 +1,20 @@
 package co.edu.uniquindio.poo.model;
 
+/**
+ * Clase abstracta que representa la estructura base de cualquier producto del restaurante.
+ * Define los atributos comunes y los métodos polimórficos de cálculo de precio y control de calidad.
+ *
+ * @author Julian Gallego
+ */
 public abstract class Producto {
-    protected String codigo;
-    protected String nombre;
-    protected String descripcion;
-    protected double precioBase;
-    protected int tiempoPreparacionMin;
+    public String codigo;
+    public  String nombre;
+    public  String descripcion;
+    public  double precioBase;
+    public  int tiempoPreparacionMin;
 
     /**
-     * metodo del constructor principal de Producto
+     * Metodo del constructor principal de Producto.
      *
      * @param codigo del producto
      * @param nombre del producto
@@ -24,35 +30,27 @@ public abstract class Producto {
         this.tiempoPreparacionMin = tiempoPreparacionMin;
     }
 
-
     public abstract double calcularPrecioVenta();
-
 
     public abstract boolean cumpleCalidad();
 
-
     public abstract String getCategoria();
-
 
     public int getTiempoPreparacionMin() {
         return tiempoPreparacionMin;
     }
 
-
     public void setTiempoPreparacionMin(int tiempoPreparacionMin) {
         this.tiempoPreparacionMin = tiempoPreparacionMin;
     }
-
 
     public double getPrecioBase() {
         return precioBase;
     }
 
-
     public void setPrecioBase(double precioBase) {
         this.precioBase = precioBase;
     }
-
 
     public String getDescripcion() {
         return descripcion;
@@ -62,21 +60,17 @@ public abstract class Producto {
         this.descripcion = descripcion;
     }
 
-
     public String getNombre() {
         return nombre;
     }
-
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-
     public String getCodigo() {
         return codigo;
     }
-
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;

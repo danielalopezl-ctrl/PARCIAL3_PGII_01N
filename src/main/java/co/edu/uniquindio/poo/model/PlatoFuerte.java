@@ -1,11 +1,5 @@
 package co.edu.uniquindio.poo.model;
 
-/**
- * Representa un plato fuerte dentro del menú del restaurante.
- * Aplica un incremento del 20% al precio base y valida condiciones de cocción, peso y tiempo.
- *
- * @author Julian Gallego
- */
 public class PlatoFuerte extends Producto {
     private double pesoGramos;
     private TipoPreparacion preparacion;
@@ -33,23 +27,24 @@ public class PlatoFuerte extends Producto {
     }
 
     /**
-     * Metodo para calcula el precio de venta del plato fuerte.
+     * Metodo para calcular el precio de venta del plato fuerte.
      *
-     * @return
+     * @return double Precio final de venta.
      */
     @Override
     public double calcularPrecioVenta() {
-        return precioBase * 1.20;
+        return getPrecioBase() * 1.20;
     }
 
     /**
-     * Metodo para Evaluar si el plato fuerte cumple las condiciones
-     * @return
+     * Metodo para evaluar si el plato fuerte cumple las condiciones de calidad.
+     *
+     * @return boolean true si cumple todos los criterios de calidad; false en caso contrario.
      */
     @Override
     public boolean cumpleCalidad() {
         if (pesoGramos >= 200 && pesoGramos <= 900) {
-            if (tiempoPreparacionMin >= 10 && tiempoPreparacionMin <= 60) {
+            if (getTiempoPreparacionMin() >= 10 && getTiempoPreparacionMin() <= 60) {
                 if (coccionAprobada == true) {
                     return true;
                 }
@@ -57,7 +52,6 @@ public class PlatoFuerte extends Producto {
         }
         return false;
     }
-
 
     @Override
     public String getCategoria() {
@@ -68,12 +62,15 @@ public class PlatoFuerte extends Producto {
         return pesoGramos;
     }
 
-
     public TipoPreparacion getPreparacion() {
         return preparacion;
     }
 
-
+    /**
+     * Indica si el plato superó el control de cocción.
+     *
+     * @return boolean true si la cocción fue aprobada; false en caso contrario.
+     */
     public boolean isCoccionAprobada() {
         return coccionAprobada;
     }

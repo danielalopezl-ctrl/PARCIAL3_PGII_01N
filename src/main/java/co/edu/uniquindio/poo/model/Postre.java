@@ -7,7 +7,7 @@ public class Postre extends Producto {
     private boolean requiereRefrigeracion;
 
     /**
-     * Metodo constructor principal de la clase Postre.
+     * Metodo constructor principal de Postre.
      *
      * @param codigo del postre
      * @param nombre del postre
@@ -29,19 +29,22 @@ public class Postre extends Producto {
 
     /**
      * Metodo para calcular el precio de venta del postre
+     *
      * @return
      */
     @Override
     public double calcularPrecioVenta() {
         if (requiereRefrigeracion == true) {
-            return precioBase * 1.20;
+            return getPrecioBase() * 1.20;
         } else {
-            return precioBase * 1.15;
+            return getPrecioBase() * 1.15;
         }
     }
 
     /**
-     * Metodo para evalar si el postre cumple las condiciones de calidad y conservación
+     * Metodo para evaluar si el postre cumple las condiciones de calidad y conservación:
+     *
+     *
      * @return
      */
     @Override
@@ -69,17 +72,14 @@ public class Postre extends Producto {
         return false;
     }
 
-
     @Override
     public String getCategoria() {
         return "POSTRES";
     }
 
-
     public double getPesoGramos() {
         return pesoGramos;
     }
-
 
     public double getTempAlmacenamiento() {
         return tempAlmacenamiento;
